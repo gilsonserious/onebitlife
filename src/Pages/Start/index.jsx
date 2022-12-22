@@ -6,9 +6,12 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function Start() {
 
+    const navigation = useNavigation();
+
+
     const handleNavAppExplanation = () => {
-        console.log("Testando o click!")
-    }
+       navigation.navigate("AppExplanation");
+    };
 
     return (
         <View style={styles.container}>
