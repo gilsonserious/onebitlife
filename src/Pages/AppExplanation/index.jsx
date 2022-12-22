@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native-gesture-handler';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import DefaultButton from "../../Components/Common/DefaultButton";
+import ExplanationCard from '../../Components/Explanation/ExplanationCard';
 
 export default function AppExplanation() {
 
-    function handleSetShowHome(){
+    function handleSetShowHome() {
         console.log("Botão clicado!")
     }
 
@@ -15,14 +16,15 @@ export default function AppExplanation() {
                     <Text style={styles.title}>
                         Antes, deixa {"\n"} eu te explicar...
                     </Text>
+                    <ExplanationCard />
                     <Text style={styles.descriptionCta}>
-                        Pronto para subir de nível na vida?
+                        Pronto(a) para subir de nível na vida?
                     </Text>
                     <Text style={styles.description}>
                         Na próxima tela você vai poder escolher {"\n"} seus 4 hábitos de forma individual.
                     </Text>
 
-                    <DefaulButton
+                    <DefaultButton
                         buttonText={"Continuar"}
                         handlePress={handleSetShowHome}
                         width={250}
@@ -40,10 +42,11 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(21,21,21,0.98)',
     },
     title: {
-        fontsize: 30,
+        fontSize: 30,
         fontWeight: 'bold',
         textAlign: 'center',
         marginVertical: 40,
+        color: 'white',
     },
     descriptionCta: {
         color: 'white',
