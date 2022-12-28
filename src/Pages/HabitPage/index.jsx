@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import React, {useState, setHabitInput} from "react";
+import React, { useState, setHabitInput } from "react";
 import {
     View,
     Text,
@@ -9,13 +9,16 @@ import {
     ScrollView,
     Alert
 } from 'react-native';
+import SelectFrequency from "../../Components/HabitPage/SelectFrequency";
 import SelectHabit from "../../Components/HabitPage/SelectHabit";
 
 
 
-export default function HabitPage({route}) {
+export default function HabitPage({ route }) {
     const navigation = useNavigation();
     const [habitInput, setHabitInput] = useState();
+    const [frequencyInput, SelectFrequencyInput] = useState();
+
     const { create, habit } = route.params;
 
     return (
@@ -32,14 +35,19 @@ export default function HabitPage({route}) {
                         />
                     </TouchableOpacity>
                     <View style={styles.mainContent}>
-                    <Text style={styles.title}> Configurações {'\n'} de hábito. </Text>
-                    <Text style={styles.inputText}> Área </Text>
-                    <View style={styles.inputContainer}>
-                        <Text style={styles.area}> {habit?.habitArea} </Text>
+                        <Text style={styles.title}> Configurações {'\n'} de hábito. </Text>
+                        <Text style={styles.inputText}> Área </Text>
+                        <View style={styles.inputContainer}>
+                            <Text style={styles.area}> {habit?.habitArea} </Text>
+                        </View>
+                        <Text style={styles.inputText}>Hábito</Text>
+                        <SelectHabit habit={habit} habitInput={setHabitInput} />
+                        <Text style={styles.inputText}>Frequência</Text>
+                        <SelectFrequency
+                            habitFrequency={habit?.habitFrequency}
+                            frequencyInput={SelectFrequencyInput}
+                        />
                     </View>
-                    <Text style={styles.inputText}>Hábito</Text>
-                    <SelectHabit habit={habit} habitInput={setHabitInput} />
-                </View>
                 </View>
             </ScrollView>
         </View>
