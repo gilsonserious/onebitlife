@@ -1,4 +1,4 @@
 import * as SQLite from "expo-sqlite";
-const db = SQLte.openDatabase("db.db");
+const db = SQLite.openDatabase("db.db");
 
 export default db;
